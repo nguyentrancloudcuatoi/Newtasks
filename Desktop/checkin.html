@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check-in - Talks English</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="checkin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav class="side-menu">
+        <div class="logo-container">
+            <img src="/image/logo.png" alt="Logo" class="logo">
+        </div>
+        <ul>
+            <li><a href="dashboard.html"><i class="fas fa-chart-line"></i> Dashboard</a></li>
+            <li class="active"><a href="checkin.html"><i class="fas fa-clock"></i> Check-in</a></li>
+            <li><a href="attendance-list.html"><i class="fas fa-list"></i> Attendance list</a></li>
+            <li class="admin-only"><a href="notifications.html"><i class="fas fa-bell"></i> Notifications</a></li>
+        </ul>
+        <div class="logout-btn">
+            <button type="button" onclick="handleLogout()"><i class="fas fa-sign-out-alt"></i> Log out</button>
+        </div>
+    </nav>
+
+    <div class="main-content">
+        <div class="checkin-container">
+            <h2>Check-in Form</h2>
+            <form id="checkinForm" onsubmit="return handleCheckin(event)">
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="classCode">Class Code:</label>
+                    <input type="text" id="classCode" required>
+                </div>
+                <div class="form-group">
+                    <label for="teachingMethod">Teaching Method:</label>
+                    <select id="teachingMethod" required>
+                        <option value="Option"></option>
+                        <option value="Online">Online</option>
+                        <option value="Offline">Offline</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="session">Session:</label>
+                    <input type="number" id="session" min="1" max="100" placeholder="1-100" required>
+                </div>
+                <div class="form-group">
+                    <label for="materials">Materials:</label>
+                    <select id="materials" required>
+                        <option value="Options"></option>
+                        <option value="BFB">BFB</option>
+                        <option value="FB-DD">FB-DD</option>
+                        <option value="BE">BE</option>
+                        <option value="IELTS">IELTS</option>
+                        <option value="AL">AL</option>
+                        <option value="B1">B1</option>
+                        <option value="B2">B2</option>
+                        <option value="OM">OM</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="lessonNumber">Lesson Number:</label>
+                    <input type="text" id="lessonNumber" placeholder="Ex: E7" required>
+                </div>
+                <div class="form-group">
+                    <label for="lessonName">Lesson Name:</label>
+                    <input type="text" id="lessonName" placeholder="Ex: WHAT IS YOUR BAG?" required>
+                </div>
+                <div class="form-group">
+                    <label for="state">State:</label>
+                    <select id="state" required>
+                        <option value="Option"></option>
+                        <option value="Main Class">Main Class</option>
+                        <option value="Class OFF">Class OFF</option>
+                        <option value="Make-up Class">Make-up Class</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="duration">Duration:</label>
+                    <select id="duration" required>
+                        <option value="Time"></option>
+                        <option value="30 mins">30 mins</option>
+                        <option value="40 mins">40 mins</option>
+                        <option value="45 mins">45 mins</option>
+                        <option value="50 mins">50 mins</option>
+                        <option value="60 mins">60 mins</option>
+                        <option value="70 mins">70 mins</option>
+                        <option value="75 mins">75 mins</option>
+                        <option value="90 mins">90 mins</option>
+                        <option value="120 mins">120 mins</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="vietnameseTime">Vietnamese Time:</label>
+                    <input type="text" id="vietnameseTime" placeholder="Ex: 08:00 - 09:00" required>
+                </div>
+                <div class="form-group">
+                    <label for="attendanceStatus">Attendance:</label>
+                    <select id="attendanceStatus" required>
+                        <option value="Option"></option>
+                        <option value="present">Present</option>
+                        <option value="absent_notice">Student - absent notice</option>
+                        <option value="absent_no_notice">Student - absent without notice</option>
+                        <option value="off">Teacher - OFF</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="comments">Note:</label>
+                    <textarea id="comments" rows="4"></textarea>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="submit-btn">Submit Check-in</button>
+                    <button type="button" class="edit-btn" onclick="requestEdit()">Request Edit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="checkin.js"></script>
+</body>
+</html>
